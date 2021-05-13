@@ -437,9 +437,9 @@ void SDFMap::projectDepthImage() {
           }
 
           // project to world frame
-          pt_cur(0) = (u - mp_.cx_) * depth / mp_.fx_;
-          pt_cur(1) = (v - mp_.cy_) * depth / mp_.fy_;
-          pt_cur(2) = depth;
+          pt_cur(1) = -(u - mp_.cx_) * depth / mp_.fx_;
+          pt_cur(2) = -(v - mp_.cy_) * depth / mp_.fy_;
+          pt_cur(0) = depth;
 
           pt_world = camera_r * pt_cur + md_.camera_pos_;
           // if (!isInMap(pt_world)) {
