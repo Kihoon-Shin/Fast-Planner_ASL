@@ -19,7 +19,7 @@
     <!-- depth topic: depth image, 640x480 by default -->
     <!-- don't set cloud_topic if you already set these ones! -->
     <!-- there is difference btw depth camera pose and local drone pose, but I think it is not that critical-->
-    <arg name="camera_pose_topic" value="/mavros/local_position_pose"/>
+    <arg name="camera_pose_topic" value="/mavros/local_position/pose"/>
     <!-- check the name of depth topic which your drone publish-->
     <arg name="depth_topic" value="/d435/depth/image_rect_raw"/>
 
