@@ -1,0 +1,8 @@
+In my environment 
+I gonna simulate the px4 at gazebo and the simulation packages, which HKUST-Aerial-Robotics made, makes build error, 
+so I deleted the packages without /Fast-Planner/uav_simulator/Utils/waypoint_generator
+
+And I worked at the /Fast-Planner/fast_planner/plan_manage/launch
+Not to edit the original launch files, I added copies, which names like 'real_~~~', and edited for my drone
+
+So 'real_~~~' launch files are to run the fast planner at the PX4 drone with D435 and T265
