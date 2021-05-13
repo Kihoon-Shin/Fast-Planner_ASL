@@ -22,3 +22,6 @@ So 'px4_~~~' launch files are to run the fast planner at the PX4 drone with D435
 and the original fast planner is make everything in 'world' frame
 but I used 'map' frame
 so edited some parts
+
+
+** when i launch it
