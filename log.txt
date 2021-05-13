@@ -11,6 +11,8 @@ So 'px4_~~~' launch files are to run the fast planner at the PX4 drone with D435
 (1) change if you want ~~/PX4-Autopilot/Tools/sitl_gazebo/models/depth_camera
 (2) add ~~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/1024_iris_depth_camera
     '1024_iris_depth_camera' file is in sorage folder and it is just to get the depth topic from sitl_px4
-(3) add '1024_iris_depth_camera'at ~~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt
-(4) add 'iris_depth_camera' at ~~/PX4-Autopilot/pltforms/posix/cmake/sitl_target.cmake at 'set(models '
-(5) 
+(3) add 'iris_depth_camera' at ~~/PX4-Autopilot/pltforms/posix/cmake/sitl_target.cmake at 'set(models '
+(4) cd ~~/PX4-Autopilot && make px4_sitl gazebo_iris_depth_camera
+then u can simulate the px4 with depth camera
+example) roslaunch px4 mavros_posix_sitl.launch vehicle:=iris_depth_camera
+
