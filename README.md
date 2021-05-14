@@ -30,4 +30,6 @@ now kino planner is working but topo is not perfect
 
 There were two main error when I tested and runned these
 
-(1) 
+(1) Fast-planner is not working error
+> when clicking and dragging for 2d nav goal then the error go up
+> In my desktop the error go up and laptop doesn't
