@@ -25,3 +25,5 @@ so edited some parts
 
 
 ** when i launch it
+
+change "world" to "map"
