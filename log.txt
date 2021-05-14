@@ -27,3 +27,11 @@ so edited some parts
 ** when i launch it
 
 change "world" to "map"
+
+
+"What did I do list"
+change "world" to "map"
+change topic names for my setting
+
+
+I tried to conserve the original code but it is not easy So I editied the original code
