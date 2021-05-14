@@ -9,3 +9,11 @@ I added and edited some parts to run in px4 and check it in px4_sitl gazebo
 
 now kino planner is working but topo is not perfect 
 
+# SETTINGS
+(1) simulation setting 
+
+# ERRORS
+
+There were two main error when I tested and runned these
+
+(1) 
