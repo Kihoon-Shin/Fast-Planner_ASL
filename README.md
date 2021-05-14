@@ -16,8 +16,8 @@ now kino planner is working but topo is not perfect
 - cd Fast-Planner
 - cp storage/1024_iris_depth_camera ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/
 - cp storage/depth_camera.sdf ~/PX4-Autopilot/Tools/sitl_gazebo/models/depth_camera/
-- sudo vim ~/PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake   
-about in line 103~130, add 'iris_depth_camera'
+- sudo vim ~/PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake  
+//about in line 103~130, add 'iris_depth_camera'
 - cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo_iris_depth_camera
 - source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
