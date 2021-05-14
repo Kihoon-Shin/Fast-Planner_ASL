@@ -9,8 +9,8 @@ I added and edited some parts to run in px4 and check it in px4_sitl gazebo
 
 now kino planner is working but topo is not perfect 
 
-# SETTINGS
-(1) simulation setting 
+# INSTALL & SETTINGS
+- git clone https://github.com/beomsu7/Fast-Planner 
 
 # ERRORS
 
