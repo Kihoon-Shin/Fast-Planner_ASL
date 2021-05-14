@@ -4,6 +4,8 @@
 My drone use px4 with D435i, T265   
 I added and edited some parts to run in px4 and check it in px4_sitl gazebo
 
+now kino planner is working but topo is not perfect 
+
 **Fast-Planner** is developed aiming to enable quadrotor fast flight in complex unknown environments. It contains a rich set of carefully designed planning algorithms. 
 
 **News**: 
