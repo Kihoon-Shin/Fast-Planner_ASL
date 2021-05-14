@@ -37,15 +37,20 @@ So, set the destination(rviz, 2d nav goal) and set **'OFFBOARD'** mode and **'ar
 - sudo vim ~/PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake  
 >- **# about in line 103~130, add 'iris_depth_camera'**
 - cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo_iris_depth_camera
+
+
+# RUN in gazebo
+- cd ~/PX4-Autopilot
 - source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
-
-# RUN
-- export plan_manage px4_sitl_kino_replan.launch
+- roslaunch plan_manage px4_sitl_kino_replan.launch
 >- #set the 2d nav goal in rviz
->- #arming, ex)'rosrun mavros mavsafety arm' or with your controller
->- #set mode to offboard, ex) 'rosrun mavros mavsys mode -c OFFBOARD' or your controller
+>- #arming, ex)'rosrun mavros mavsafety arm' 
+>- #set mode to offboard, ex) 'rosrun mavros mavsys mode -c OFFBOARD'   
+
+# RUN in real drone
+
 
 # ERRORS
 
