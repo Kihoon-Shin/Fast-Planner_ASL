@@ -19,6 +19,7 @@ ros::Publisher pub1;
 ros::Publisher pub2;
 ros::Publisher pub3;
 string waypoint_type = string("manual");
+float waypoint_height = 1.0f;
 bool is_odom_ready;
 nav_msgs::Odometry odom;
 nav_msgs::Path waypoints;
@@ -84,7 +85,7 @@ void load_waypoints(ros::NodeHandle& nh, const ros::Time& time_base) {
 }
 
 void publish_waypoints() {
-    waypoints.header.frame_id = std::string("world");
+    waypoints.header.frame_id = std::string("map");
     waypoints.header.stamp = ros::Time::now();
     pub1.publish(waypoints);
     geometry_msgs::PoseStamped init_pose;
@@ -98,7 +99,7 @@ void publish_waypoints() {
 void publish_waypoints_vis() {
     nav_msgs::Path wp_vis = waypoints;
     geometry_msgs::PoseArray poseArray;
-    poseArray.header.frame_id = std::string("world");
+    poseArray.header.frame_id = std::string("map");
     poseArray.header.stamp = ros::Time::now();
 
     {
@@ -154,6 +155,7 @@ void goal_callback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
 
     ros::NodeHandle n("~");
     n.param("waypoint_type", waypoint_type, string("manual"));
+    n.param("waypoint_height", waypoint_height, 1.0f);
     
     if (waypoint_type == string("circle")) {
         waypoints = circle();
@@ -173,6 +175,7 @@ void goal_callback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
         if (msg->pose.position.z > -0.1) {
             // if height > 0, it's a valid goal;
             geometry_msgs::PoseStamped pt = *msg;
+            pt.pose.position.z = waypoint_height;
             waypoints.poses.clear();
             waypoints.poses.push_back(pt);
             publish_waypoints_vis();
