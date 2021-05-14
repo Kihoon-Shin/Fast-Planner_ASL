@@ -80,7 +80,7 @@
     <param name="traj_pub-topic" value="mavros/setpoint_raw/local"/>
   </node>
 
-  <include file="$(find plan_manage)/launch/rviz.launch"/>
+  <include file="$(find plan_manage)/launch/rviz_sitl.launch"/>
 
   <include file="$(find testbot_description)/launch/testbot.launch"/>
   
