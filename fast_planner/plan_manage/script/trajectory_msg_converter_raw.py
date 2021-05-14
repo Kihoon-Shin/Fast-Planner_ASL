@@ -2,7 +2,7 @@
 
 """@trajectory_msg_converter.py
 This node converts Fast-Planner reference trajectory message to MultiDOFJointTrajectory which is accepted by geometric_controller
-Authors: Mohamed Abdelkader
+origial file's Authors: Mohamed Abdelkader
 https://github.com/mzahana/px4_fast_planner
 reference : /px4_fast_planner/scripts/trajectory_msg_converter.py
 """
