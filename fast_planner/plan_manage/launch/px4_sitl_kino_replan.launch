@@ -79,6 +79,10 @@
     <param name="fast_planner_traj_topic" value="planning/pos_cmd"/>
     <param name="traj_pub-topic" value="mavros/setpoint_raw/local"/>
   </node>
+  <!--  <node pkg="plan_manage" name="traj_msg_converter" type="trajectory_msg_converter_pos.py" output="screen">
+    <param name="fast_planner_traj_topic" value="planning/pos_cmd"/>
+    <param name="traj_pub-topic" value="mavros/setpoint_position/local"/>
+  </node>-->
 
   <include file="$(find plan_manage)/launch/rviz_sitl.launch"/>
 
