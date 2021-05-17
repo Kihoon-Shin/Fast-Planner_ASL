@@ -41,7 +41,7 @@ class MessageConverter:
 
     def fastPlannerTrajCallback(self, msg):
         # position and yaw
-        self.pose = PoseStamped()
+       
         self.pose.pose.position.x = msg.position.x
         self.pose.pose.position.y = msg.position.y
         self.pose.pose.position.z = msg.position.z
