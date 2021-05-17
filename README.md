@@ -1,7 +1,7 @@
 # Todo list(for me)
 take off height is 1m, mayb add param to change this(/plan_manage/script/trajectory_msg_converter_~.py)   
 
-# Fast-Planner for Real Quadrotor with px4
+# Fast-Planner for px4
 
 The orignal fast planner is https://github.com/HKUST-Aerial-Robotics/Fast-Planner   
 in may case the main algorithm and concept is same but edited for px4 sitl and real flight
