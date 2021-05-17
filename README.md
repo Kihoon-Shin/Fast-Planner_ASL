@@ -42,8 +42,9 @@ and this one use 'movros_controllers', which was unstable in my drone
 - source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
-- roslaunch plan_manage px4_sitl_kino_replan.launch
+- roslaunch plan_manage px4_sitl_kino_replan.launch   
 
+- # in another terminal
 - rosrun mavros mavsafety arm 
 - rosrun mavros mavsys mode -c OFFBOARD   
 
