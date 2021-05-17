@@ -63,5 +63,7 @@ There were two main error when I tested and runned these
 > if drone arms but not takes off then, I'm not sure but my solution was change the topic from /mavros/setpoint_raw/local to /mavros/setpoint_position/local   
 > if you changes it, then the topic doesn't care about acc and vel, only position
 > 
-> the way to change the setpoint topic is edit the /Fast-Planner/fast_planner/plan_manage/launch/px4_sitl_kino_replan.launch line 78~81
-> delete line 78~81 and delete the annotation of line 82~85
+> the way to change the setpoint topic is edit the /Fast-Planner/fast_planner/plan_manage/launch/px4_sitl_kino_replan.launch
+>  from <node pkg="plan_manage" name="traj_msg_converter" type="trajectory_msg_converter_raw.py" output="screen"/>
+>  to <node pkg="plan_manage" name="traj_msg_converter" type="trajectory_msg_converter_pos.py" output="screen"/>
+
