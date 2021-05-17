@@ -12,19 +12,17 @@ I added and edited some parts to run in px4 and check it in px4_sitl gazebo
 
 # CONCEPT
 This is simple   
-(1) Set the destination   
-(2) kino or topo planner gonna make the trajectory   
-(3) pub the trajectory to mavros as /mavros/setpoint_raw/local   
-(4) then px4 gonna fly   
+(1) take off
+(2) user - Set the destination   
+(3) kino or topo planner gonna make the trajectory   
+(4) pub the trajectory to mavros as /mavros/setpoint_raw/local   
+(5) then px4 gonna fly   
 
-when set the destination with RVIZ(2d nav goal), from that time start to pub /mavros/setpoint_raw/local   
-then we can set the mode to 'OFFBOARD'   
+ 
 
 In my case, I used https://github.com/mzahana/px4_fast_planner
 and this one use 'movros_controllers', which was unstable in my drone
-'mavros_controllers' first take off and hold before setting the destination   
-but this one moves only after set the destination   
-So, set the destination(rviz, 2d nav goal) and set **'OFFBOARD'** mode and **'arming'**
+
 
 
 # INSTALL & SETTINGS
@@ -45,9 +43,9 @@ So, set the destination(rviz, 2d nav goal) and set **'OFFBOARD'** mode and **'ar
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 - roslaunch plan_manage px4_sitl_kino_replan.launch
->- #set the 2d nav goal in rviz
->- #arming, ex)'rosrun mavros mavsafety arm' 
->- #set mode to offboard, ex) 'rosrun mavros mavsys mode -c OFFBOARD'   
+
+- rosrun mavros mavsafety arm 
+- rosrun mavros mavsys mode -c OFFBOARD   
 
 # RUN in real drone
 
