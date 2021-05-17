@@ -1,5 +1,5 @@
-# WARN
-now kino planner is working but topo planner is not perfect
+# Todo list(for me)
+take off height is 1m, mayb add param to change this(/plan_manage/script/trajectory_msg_converter_~.py)   
 
 # Fast-Planner for Real Quadrotor with px4
 
@@ -49,7 +49,13 @@ in another terminal
 - rosrun mavros mavsys mode -c OFFBOARD   
 
 # RUN in real drone
-
+- cd ~/PX4-Autopilot
+- source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+- export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+- export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+- roslaunch plan_manage px4_kino_replan.launch      
+   
+- arming and set the OFFBOARD mode
 
 # ERRORS
 
