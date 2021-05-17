@@ -12,11 +12,10 @@ I added and edited some parts to run in px4 and check it in px4_sitl gazebo
 
 # CONCEPT
 This is simple   
-(1) take off
-(2) user - Set the destination   
-(3) kino or topo planner gonna make the trajectory   
-(4) pub the trajectory to mavros as /mavros/setpoint_raw/local   
-(5) then px4 gonna fly   
+(1) user - Set the destination   
+(2) kino or topo planner gonna make the trajectory   
+(3) pub the trajectory to mavros as /mavros/setpoint_raw/local   
+(4) then px4 gonna fly   
 
  
 
