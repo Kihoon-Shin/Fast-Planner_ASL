@@ -22,27 +22,46 @@ class MessageConverter:
         fast_planner_traj_topic = rospy.get_param('~fast_planner_traj_topic', 'planning/pos_cmd')
         traj_pub_topic = rospy.get_param('~traj_pub_topic', 'mavros/setpoint_position/local')
 
+        self.pose = PoseStamped()
+        self.pose.pose.position.x = 0
+        self.pose.pose.position.y = 0
+        self.pose.pose.position.z = 1
+        #q = quaternion_from_euler(0, 0, msg.yaw) # RPY
+        self.pose.pose.orientation.x = 0
+        self.pose.pose.orientation.y = 0
+        self.pose.pose.orientation.z = 0
+        self.pose.pose.orientation.w = 1
+        
         # Publisher for geometric_controller
         self.traj_pub = rospy.Publisher(traj_pub_topic, PoseStamped, queue_size=1)
 
         # Subscriber for Fast-Planner reference trajectory
         rospy.Subscriber(fast_planner_traj_topic, PositionCommand, self.fastPlannerTrajCallback, tcp_nodelay=True)
-
-        rospy.spin()
+    
 
     def fastPlannerTrajCallback(self, msg):
         # position and yaw
-        pose = PoseStamped()
-        pose.pose.position.x = msg.position.x
-        pose.pose.position.y = msg.position.y
-        pose.pose.position.z = msg.position.z
+        self.pose = PoseStamped()
+        self.pose.pose.position.x = msg.position.x
+        self.pose.pose.position.y = msg.position.y
+        self.pose.pose.position.z = msg.position.z
         q = quaternion_from_euler(0, 0, msg.yaw) # RPY
-        pose.pose.orientation.x = q[0]
-        pose.pose.orientation.y = q[1]
-        pose.pose.orientation.z = q[2]
-        pose.pose.orientation.w = q[3]
+        self.pose.pose.orientation.x = q[0]
+        self.pose.pose.orientation.y = q[1]
+        self.pose.pose.orientation.z = q[2]
+        self.pose.pose.orientation.w = q[3]
 
-        self.traj_pub.publish(pose)
+        #
+
+    def run(self):
+        rate = rospy.Rate(30)
+        while not rospy.is_shutdown():
+            self.traj_pub.publish(self.pose)
+            rate.sleep()
 
 if __name__ == '__main__':
     obj = MessageConverter()
+    obj.run()
+
+
+    
