@@ -59,7 +59,7 @@ in another terminal
 # ignition gazebo(working)
 - cd Firmware && make px4_sitl ignition
 - roslaunch mavros px4.launch fcu_url:=udp://:14540@localhost:14557
-- rosrun s_ign_bridge parameter_bridge /depth_camera@sensor_msgs/Image@ignition.msgs.Image /rgb_camera@sensor_msgs/Image@ignition.msgs.Image
+- rosrun ros_ign_bridge parameter_bridge /depth_camera@sensor_msgs/Image@ignition.msgs.Image /rgb_camera@sensor_msgs/Image@ignition.msgs.Image
 - 
 # ERRORS
 
