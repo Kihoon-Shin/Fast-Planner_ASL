@@ -60,7 +60,13 @@ in another terminal
 - cd ~/Firmware && make px4_sitl ignition
 - roslaunch mavros px4.launch fcu_url:=udp://:14540@localhost:14557
 - rosrun ros_ign_bridge parameter_bridge /depth_camera@sensor_msgs/Image@ignition.msgs.Image /rgb_camera@sensor_msgs/Image@ignition.msgs.Image /depth_camera/points@sensor_msgs/PointCloud2@ignition.msgs.PointCloudPacked
-- 
+
+- rostopic echo /mavrolocal_position/pose
+- rostopic echo --noar/depth_camera
+
+- rosrun topic_tools transform /depth_camera /d435/depth/ima_rect_raw sensor_msgs/Image 'sensor_msgs.msg.Image(header=std_msgs.msg.Header(seq=m.header.seq,stamp=m.header.stamp,frame_id="camera_link"),height=m.height,width=m.width,encoding=m.encoding,is_bigendian=m.is_bigendian,step=m.step,data=m.data)' --import sensor_msgs std_msgs
+
+
 # ERRORS
 
 There were two main error when I tested and runned these
