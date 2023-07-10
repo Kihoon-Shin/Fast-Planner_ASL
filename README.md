@@ -34,7 +34,7 @@ and this one use 'movros_controllers', which was unstable in my drone
 - sudo vim ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo.cmake 
 >- **# about in line 103~130, add 'iris_depth_camera'**
 - cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo-classic_iris_depth_camera
-gedit ~/drone_ws/src/Fast-Planner/uav_simulator/Utils/testbot_description/launch/testbot.launch
+- gedit ~/drone_ws/src/Fast-Planner/uav_simulator/Utils/testbot_description/launch/testbot.launch
 ```
 	<!--<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>-->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
