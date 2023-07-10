@@ -29,11 +29,11 @@ and this one use 'movros_controllers', which was unstable in my drone
 - git clone https://github.com/beomsu7/Fast-Planner 
 - cd .. && catkin build && source devel/setup.bash
 - cd Fast-Planner
-- cp storage/1024_iris_depth_camera ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/
-- cp storage/depth_camera.sdf ~/PX4-Autopilot/Tools/sitl_gazebo/models/depth_camera/
-- sudo vim ~/PX4-Autopilot/platforms/posix/cmake/sitl_target.cmake  
+- cp storage/1024_gazebo-classic_iris_depth_camera ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/
+- cp storage/depth_camera.sdf ~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/depth_camera/
+- sudo vim ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo.cmake 
 >- **# about in line 103~130, add 'iris_depth_camera'**
-- cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo_iris_depth_camera
+- cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo-classic_iris_depth_camera
 
 
 # RUN in gazebo
