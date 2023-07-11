@@ -22,7 +22,11 @@ This is simple
 In my case, I used https://github.com/mzahana/px4_fast_planner
 and this one use 'movros_controllers', which was unstable in my drone
 
-
+# Prerequisite
+You should catkin build nlopt first in your catkin workspace.
+- git clone https://github.com/ethz-asl/nlopt.git
+- catkin build nlopt
+- source devel/setup.bash
 
 # INSTALL & SETTINGS
 - cd ~/catkin_ws/src # in my case 'catkin_ws' and 'PX4-Autopilot' is located in HOME
