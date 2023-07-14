@@ -53,7 +53,27 @@ You should catkin build nlopt first in your catkin workspace.
 
 in another terminal
 - rosrun mavros mavsafety arm 
-- rosrun mavros mavsys mode -c OFFBOARD   
+- rosrun mavros mavsys mode -c OFFBOARD
+
+- To command the drone to fly to a target pose, publish a single message to the /move_base_simple/goal topic as follows
+```bash
+rostopic pub --once /move_base_simple/goal geometry_msgs/PoseStamped "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+pose:
+  position:
+    x: 19.0
+    y: 15.0
+    z: 3.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0"
+```
 
 # RUN in real drone
 - cd ~/PX4-Autopilot
