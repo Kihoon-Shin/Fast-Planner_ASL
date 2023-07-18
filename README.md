@@ -37,6 +37,8 @@ You should catkin build nlopt first in your catkin workspace.
 - cp storage/depth_camera.sdf ~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/depth_camera/
 - cd ~/.ros/etc/init.d-posix/airframes
 - cp ~/drone_ws/src/Fast-Planner/storage/1024_gazebo-classic_iris_depth_camera .
+- cd ~/drone_ws/src/Fast-Planner/fast_planner/plan_manage/script
+- sudo chmod 777 trajectory_msg_converter_raw.py 
 - gedit ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo-classic.cmake 
 >- **# about in line 103~130, add 'iris_depth_camera'**
 - cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo-classic_iris_depth_camera
