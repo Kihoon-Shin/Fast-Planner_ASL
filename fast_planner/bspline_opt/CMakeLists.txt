@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(bspline_opt)
+set(CMAKE_CXX_STANDARD 14)
 
 find_package(Eigen3 REQUIRED)
 find_package(PCL 1.7 REQUIRED)
