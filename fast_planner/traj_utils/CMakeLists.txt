@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Eigen3 REQUIRED)
 find_package(PCL 1.7 REQUIRED)
+set(CMAKE_CXX_STANDARD 14)
 
 catkin_package(
  INCLUDE_DIRS include
