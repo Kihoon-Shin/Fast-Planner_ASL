@@ -105,8 +105,8 @@ There were two main error when I tested and runned these
 
 (1) Fast-planner is not working error
 > when clicking and dragging for 2d nav goal then the error go up
-> In my desktop the error go up and laptop doesn't
 ![screensh](./image/fast_planner_error.png)
+> https://blog.csdn.net/asd22222984565/article/details/126779002#comments_23784587
 
 (2) mavros setpoint not working error in sitl
 > if drone arms but not takes off then, I'm not sure but my solution was change the topic from /mavros/setpoint_raw/local to /mavros/setpoint_position/local   
