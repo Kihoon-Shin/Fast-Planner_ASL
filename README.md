@@ -32,10 +32,10 @@ You should catkin build nlopt first in your catkin workspace.
 - cd ~/catkin_ws/src # in my case 'catkin_ws' and 'PX4-Autopilot' is located in HOME
 - git clone https://github.com/Kihoon-Shin/Fast-Planner.git
 - cd .. && catkin build && source devel/setup.bash
-- cd Fast-Planner
+- cd src/Fast-Planner
 - cp storage/1024_gazebo-classic_iris_depth_camera ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/
 - cp storage/depth_camera.sdf ~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/depth_camera/
-- sudo vim ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo-classic.cmake 
+- gedit ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo-classic.cmake 
 >- **# about in line 103~130, add 'iris_depth_camera'**
 - cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo-classic_iris_depth_camera
 - gedit ~/drone_ws/src/Fast-Planner/uav_simulator/Utils/testbot_description/launch/testbot.launch
