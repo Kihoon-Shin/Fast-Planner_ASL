@@ -19,7 +19,7 @@ ros::Publisher pub1;
 ros::Publisher pub2;
 ros::Publisher pub3;
 string waypoint_type = string("manual");
-float waypoint_height = 1.0f;
+// float waypoint_height = 15.0f;
 bool is_odom_ready;
 nav_msgs::Odometry odom;
 nav_msgs::Path waypoints;
@@ -155,7 +155,7 @@ void goal_callback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
 
     ros::NodeHandle n("~");
     n.param("waypoint_type", waypoint_type, string("manual"));
-    n.param("waypoint_height", waypoint_height, 1.0f);
+    // n.param("waypoint_height", waypoint_height, 15.0f);
     
     if (waypoint_type == string("circle")) {
         waypoints = circle();
@@ -175,7 +175,7 @@ void goal_callback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
         if (msg->pose.position.z > -0.1) {
             // if height > 0, it's a valid goal;
             geometry_msgs::PoseStamped pt = *msg;
-            pt.pose.position.z = waypoint_height;
+            // pt.pose.position.z = waypoint_height;
             waypoints.poses.clear();
             waypoints.poses.push_back(pt);
             publish_waypoints_vis();
@@ -248,7 +248,7 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "waypoint_generator");
     ros::NodeHandle n("~");
     n.param("waypoint_type", waypoint_type, string("manual"));
-    ros::Subscriber sub1 = n.subscribe("odom", 10, odom_callback);
+    // ros::Subscriber sub1 = n.subscribe("odom", 10, odom_callback);
     ros::Subscriber sub2 = n.subscribe("goal", 10, goal_callback);
     ros::Subscriber sub3 = n.subscribe("traj_start_trigger", 10, traj_start_trigger_callback);
     pub1 = n.advertise<nav_msgs::Path>("waypoints", 50);

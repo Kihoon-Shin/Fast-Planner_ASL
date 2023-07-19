@@ -12,7 +12,7 @@ class MessageConverter:
         self.pose.coordinate_frame = 1
         self.pose.position.x = 0
         self.pose.position.y = 0
-        self.pose.position.z = 1
+        self.pose.position.z = 2
         self.pose.yaw = 0
 
         self.traj_pub = rospy.Publisher('mavros/setpoint_raw/local', PositionTarget, queue_size=1)
