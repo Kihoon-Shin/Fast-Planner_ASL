@@ -29,13 +29,17 @@ You should catkin build nlopt first in your catkin workspace.
 - source devel/setup.bash
 
 # INSTALL & SETTINGS
-- cd ~/catkin_ws/src # in my case 'catkin_ws' and 'PX4-Autopilot' is located in HOME
+- cd ~/drone_ws/src # in my case 'drone_ws' and 'PX4-Autopilot' is located in HOME
 - git clone https://github.com/Kihoon-Shin/Fast-Planner.git
 - cd .. && catkin build && source devel/setup.bash
-- cd Fast-Planner
+- cd src/Fast-Planner
 - cp storage/1024_gazebo-classic_iris_depth_camera ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/
 - cp storage/depth_camera.sdf ~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/depth_camera/
-- sudo vim ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo-classic.cmake 
+- cd ~/.ros/etc/init.d-posix/airframes
+- cp ~/drone_ws/src/Fast-Planner/storage/1024_gazebo-classic_iris_depth_camera .
+- cd ~/drone_ws/src/Fast-Planner/fast_planner/plan_manage/script
+- sudo chmod 777 trajectory_msg_converter_raw.py 
+- gedit ~/PX4-Autopilot/src/modules/simulation/simulator_mavlink/sitl_targets_gazebo-classic.cmake 
 >- **# about in line 103~130, add 'iris_depth_camera'**
 - cd ~/PX4-Autopilot && DONT_RUN=1 make px4_sitl_default gazebo-classic_iris_depth_camera
 - gedit ~/drone_ws/src/Fast-Planner/uav_simulator/Utils/testbot_description/launch/testbot.launch
@@ -101,8 +105,8 @@ There were two main error when I tested and runned these
 
 (1) Fast-planner is not working error
 > when clicking and dragging for 2d nav goal then the error go up
-> In my desktop the error go up and laptop doesn't
 ![screensh](./image/fast_planner_error.png)
+> https://blog.csdn.net/asd22222984565/article/details/126779002#comments_23784587
 
 (2) mavros setpoint not working error in sitl
 > if drone arms but not takes off then, I'm not sure but my solution was change the topic from /mavros/setpoint_raw/local to /mavros/setpoint_position/local   
